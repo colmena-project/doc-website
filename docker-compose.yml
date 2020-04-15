@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webserver:
+    image: httpd:2-alpine
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+    ports:
+      - 8080:80
+    volumes:
+    - ./:/usr/local/apache2/htdocs/
